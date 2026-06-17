@@ -10,3 +10,4 @@ MemoryCaptures/
 *.csproj
 *.sln
 *.user
+.vscode/

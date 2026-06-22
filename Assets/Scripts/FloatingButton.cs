@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FloatingButton : MonoBehaviour
 {
-    public float amplitude = 10f; // distância do movimento
+    public float amplitude = 18f; // distância do movimento
     public float speed = 2f;     // velocidade
 
     private Vector3 startPos;

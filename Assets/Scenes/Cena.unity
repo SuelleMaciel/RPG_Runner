@@ -320,12 +320,12 @@ MonoBehaviour:
   textoTempo: {fileID: 1318118354}
   textoMoedas: {fileID: 445085131}
   personagens:
-  - nomeClasse: Lutador
-    icon: {fileID: 21300000, guid: 0f31f14bd2d16d4448011c9d8a33bb67, type: 3}
-  - nomeClasse: Mago
-    icon: {fileID: 21300000, guid: 4a3706fca5728664395a37e41e1b1c2b, type: 3}
   - nomeClasse: "B\xE1rbaro"
     icon: {fileID: 21300000, guid: b5f3e63aeae237a45a26748240c3642c, type: 3}
+  - nomeClasse: Mago
+    icon: {fileID: 21300000, guid: 4a3706fca5728664395a37e41e1b1c2b, type: 3}
+  - nomeClasse: Lutador
+    icon: {fileID: 21300000, guid: 0f31f14bd2d16d4448011c9d8a33bb67, type: 3}
   spritePlay: {fileID: 21300000, guid: 6495450c6f8acd448bd1db0cbffe3a7d, type: 3}
   spritePause: {fileID: 21300000, guid: cb89bc854f9e41d45b3f8948dc5920b4, type: 3}
   botaoPause: {fileID: 339475315}
@@ -1715,8 +1715,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -10}
-  m_SizeDelta: {x: 180, y: 30}
+  m_AnchoredPosition: {x: -90, y: -15}
+  m_SizeDelta: {x: 171.29999, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1318118353
 CanvasRenderer:

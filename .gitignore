@@ -134,3 +134,5 @@ Auto-generated scenes by play mode tests
 Auto-generated cache in Assets folder
 
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+/[Pp]roject[Ss]ettings/HDRPProjectSettings.asset

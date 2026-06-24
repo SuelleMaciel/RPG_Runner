@@ -29,6 +29,6 @@ public class GameManager : MonoBehaviour
             timerAumento = 0f;
             VelocidadeAtual = Mathf.Min(VelocidadeAtual + incrementoVelocidade, velocidadeMaxima);
         }
-        Debug.Log(VelocidadeAtual);
+        //Debug.Log($"Velocidade Atual: {VelocidadeAtual}");
     }
 }

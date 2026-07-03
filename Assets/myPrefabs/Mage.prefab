@@ -1066,6 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -3693372400289761586}
+  - component: {fileID: -5290994474854871251}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -1119,6 +1120,56 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5290994474854871251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be65d73e3e4470d4e95c6a5748fc931b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimentoPlayer
+  distanciaPorPasso: 1.5
+  velocidadeMovimento: 10
+  maxPassos: 3
+  intervaloEntrePassos: 0.2
+  moverEsquerda:
+    m_Name: Mover Esquerda
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 14b22573-463d-4319-bf19-8d0a28202b72
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6d4d7807-6095-44cd-89f2-cf624e05f417
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mover Esquerda
+      m_Flags: 0
+    m_Flags: 0
+  moverDireita:
+    m_Name: Mover Direita
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6ff845fc-6c54-4926-80a7-f3e245b61993
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 46335305-bfb4-4b6a-b554-eb51b88c7dbb
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mover Direita
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &2870523794981691266
 GameObject:
   m_ObjectHideFlags: 0

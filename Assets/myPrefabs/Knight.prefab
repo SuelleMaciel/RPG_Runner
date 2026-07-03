@@ -836,6 +836,9 @@ GameObject:
   m_Component:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -4344461013512119991}
+  - component: {fileID: 7752706634837873305}
+  - component: {fileID: 1200723694801045678}
+  - component: {fileID: 7468956120069903920}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -890,6 +893,124 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7752706634837873305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be65d73e3e4470d4e95c6a5748fc931b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimentoPlayer
+  distanciaPorPasso: 1.5
+  velocidadeMovimento: 10
+  maxPassos: 3
+  intervaloEntrePassos: 0.1
+  alturaMaximaPulo: 3
+  velocidadePulo: 8
+  moverEsquerda:
+    m_Name: Mover Esquerda
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c05724ac-6228-413d-bb2a-bd9f0a5086e8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e30120fb-26ca-425e-b668-b8bcd002154f
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mover Esquerda
+      m_Flags: 0
+    m_Flags: 0
+  moverDireita:
+    m_Name: Mover Direita
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 31a72994-d85b-49f1-8d0c-324ece3610eb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 892c6030-9e76-4694-be6b-3e252b0e3116
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mover Direita
+      m_Flags: 0
+    m_Flags: 0
+  pular:
+    m_Name: Pular
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 24a94731-e429-477c-a0e2-024ea7946bac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6c29c467-3e51-4de2-b033-d5db56c9bdcc
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pular
+      m_Flags: 0
+    m_Flags: 0
+--- !u!64 &1200723694801045678
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!54 &7468956120069903920
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1441910434564014222
 GameObject:
   m_ObjectHideFlags: 0

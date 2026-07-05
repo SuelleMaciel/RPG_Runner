@@ -62,6 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: -5515783359193845756}
+  - {fileID: 6510006753822834896}
   m_Father: {fileID: -1108100253261171142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &-8343894014087287100
@@ -1067,6 +1068,7 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -3693372400289761586}
   - component: {fileID: -5290994474854871251}
+  - component: {fileID: -3966177572584613227}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -1136,6 +1138,8 @@ MonoBehaviour:
   velocidadeMovimento: 10
   maxPassos: 3
   intervaloEntrePassos: 0.2
+  alturaMaximaPulo: 3
+  velocidadePulo: 8
   moverEsquerda:
     m_Name: Mover Esquerda
     m_Type: 0
@@ -1170,6 +1174,56 @@ MonoBehaviour:
       m_Action: Mover Direita
       m_Flags: 0
     m_Flags: 0
+  pular:
+    m_Name: Pular
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c7a46fc4-2d32-46f3-b57b-bcad68241aee
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: f7b22954-5e7a-40a4-aece-fb6292b7cbdd
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pular
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &-3966177572584613227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a309035e4c7e2d74091b2c84a2845705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HabilidadeMago
+  cooldown: 5
+  teclaHabilidade:
+    m_Name: Tecla Habilidade
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f297342c-ad42-4005-87b5-f6a240ac88a4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1d891b75-5481-4cd2-9f8c-fb4bee16ddb8
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Tecla Habilidade
+      m_Flags: 0
+    m_Flags: 0
+  prefabProjetil: {fileID: 8841096127641082716, guid: 19fde14c4b28b5044999af26d139f6bb, type: 3}
+  velocidadeProjetil: 20
+  offsetDisparo: {x: -1, y: 0.5, z: 0}
 --- !u!1 &2870523794981691266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,3 +1855,65 @@ Transform:
   - {fileID: 33407622243363717}
   m_Father: {fileID: 8052791189861519797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6760617567846164283
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: -8995212700073126884}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18721484
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10823397
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.042443343
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.812002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.58365464
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 71.416
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+      propertyPath: m_Name
+      value: spellbook_open
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+--- !u!4 &6510006753822834896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: faec1184e88863b4db1b946e5b20b8dc, type: 3}
+  m_PrefabInstance: {fileID: 6760617567846164283}
+  m_PrefabAsset: {fileID: 0}

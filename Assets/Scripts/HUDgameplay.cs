@@ -20,6 +20,9 @@ public class HUDgameplay : MonoBehaviour
     [SerializeField] private Sprite spritePlay;
     [SerializeField] private Sprite spritePause;
     [SerializeField] private UnityEngine.UI.Button botaoPause;
+    [SerializeField] private TextMeshProUGUI textoCooldown;
+
+    private HabilidadeBase habilidade;
 
     public void AlternarPause()
     {
@@ -70,6 +73,7 @@ public class HUDgameplay : MonoBehaviour
     {
         tempoSobrevivido += Time.deltaTime;
         AtualizarTempo();
+        AtualizarCooldown();
     }
     public void AtualizarVida(float porcentagem)
     {
@@ -83,7 +87,7 @@ public class HUDgameplay : MonoBehaviour
     {
         int minutos = Mathf.FloorToInt(tempoSobrevivido / 60f);
         int segundos = Mathf.FloorToInt(tempoSobrevivido % 60);
-        textoTempo.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+        textoTempo.text = string.Format("Tempo sobrevivido: {0:00}:{1:00}", minutos, segundos);
     }
     public void AdicionarMoedas(int quantidade)
     {
@@ -93,5 +97,25 @@ public class HUDgameplay : MonoBehaviour
     public void AtualizarMoedas(int valor)
     {
         textoMoedas.text = valor.ToString();
+    }
+
+    private void AtualizarCooldown()
+    {
+        if (habilidade == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+                habilidade = player.GetComponent<HabilidadeBase>();
+            return;
+        }
+
+        if (habilidade.EmCooldown)
+        {
+            textoCooldown.text = Mathf.CeilToInt(habilidade.CooldownAtual).ToString() + "s";
+        }
+        else
+        {
+            textoCooldown.text = "HABILIDADE PRONTA!";
+        }
     }
 }

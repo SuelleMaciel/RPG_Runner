@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -593684650356692670}
   - component: {fileID: 4592365141247697946}
+  - component: {fileID: -263430999837069675}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Player
@@ -1020,6 +1021,8 @@ MonoBehaviour:
   velocidadeMovimento: 10
   maxPassos: 3
   intervaloEntrePassos: 0.1
+  alturaMaximaPulo: 3
+  velocidadePulo: 8
   moverEsquerda:
     m_Name: Mover Esquerda
     m_Type: 0
@@ -1054,6 +1057,55 @@ MonoBehaviour:
       m_Action: Mover Direita
       m_Flags: 0
     m_Flags: 0
+  pular:
+    m_Name: Pular
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 32ea6496-257a-404c-914d-1ddae3e12754
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6fab52b7-4a58-428c-b770-a68e1a452f3b
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pular
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &-263430999837069675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e2689f6b7611048b788bdc295a7eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HabilidadeBarbaro
+  cooldown: 5
+  teclaHabilidade:
+    m_Name: Tecla Habilidade
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8cdac3ae-654e-401f-be6b-e0b082c8afd7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: cbfb1994-0d68-4fa6-88a8-2db8d438b841
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Tecla Habilidade
+      m_Flags: 0
+    m_Flags: 0
+  raioDestruicao: 3
+  tagPedra: obstacle
 --- !u!1 &2870523794981691266
 GameObject:
   m_ObjectHideFlags: 0

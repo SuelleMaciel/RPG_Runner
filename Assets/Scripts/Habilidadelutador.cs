@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Habilidadelutador : HabilidadeBase
+public class HabilidadeLutador : HabilidadeBase
 {
-    [Header("Escudo")]
     [SerializeField] private float duracaoEscudo = 3f;
 
     public bool EscudoAtivo { get; private set; } = false;
@@ -12,6 +11,7 @@ public class Habilidadelutador : HabilidadeBase
     protected override void Update()
     {
         base.Update();
+
         if (EscudoAtivo)
         {
             timerEscudo -= Time.deltaTime;

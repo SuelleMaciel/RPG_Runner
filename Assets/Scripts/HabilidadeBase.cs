@@ -12,6 +12,7 @@ public abstract class HabilidadeBase : MonoBehaviour
     public float CooldownAtual => timerCooldown;
     public float CooldownTotal => cooldown;
     public bool EmCooldown => emCooldown;
+    private float cooldownFinal;
 
     protected virtual void OnEnable() => teclaHabilidade.Enable();
     protected virtual void OnDisable() => teclaHabilidade.Disable();
@@ -19,6 +20,8 @@ public abstract class HabilidadeBase : MonoBehaviour
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
+        int reducao = PlayerPrefs.GetInt("ReducaoCooldown", 0);
+        cooldownFinal = Mathf.Max(1f, cooldown - reducao); // pra nao passar de 1 segudno
     }
 
     protected virtual void Update()

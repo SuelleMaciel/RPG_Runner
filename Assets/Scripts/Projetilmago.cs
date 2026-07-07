@@ -1,18 +1,20 @@
 using UnityEngine;
 
-// Esse script vai no prefab do projétil
-public class Projetilmago : MonoBehaviour
+public class ProjetilMago : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Projetil colidiu com: " + other.gameObject.name + " | Tag: " + other.gameObject.tag);
+        
         if (other.CompareTag("enemy"))
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);   
+            Destroy(gameObject);
+            return;
         }
-        else if (!other.CompareTag("Player"))
-        {
-            Destroy(gameObject); 
-        }
+        if (other.CompareTag("Untagged")) return;
+
+        if (!other.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }

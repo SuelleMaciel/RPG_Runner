@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c5369ca9301d74db249ae9244e0167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HabilidadeLutador
-  cooldown: 5
+  cooldown: 7
   teclaHabilidade:
     m_Name: Tecla Habilidade
     m_Type: 0

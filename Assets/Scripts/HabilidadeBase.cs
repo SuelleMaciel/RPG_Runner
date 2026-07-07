@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public abstract class HabilidadeBase : MonoBehaviour
 {
-    [SerializeField] protected float cooldown = 5f;
+    [SerializeField] protected float cooldown = 7f;
     [SerializeField] protected InputAction teclaHabilidade;
 
     protected Animator animator;

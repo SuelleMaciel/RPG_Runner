@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e2689f6b7611048b788bdc295a7eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HabilidadeBarbaro
-  cooldown: 5
+  cooldown: 7
   teclaHabilidade:
     m_Name: Tecla Habilidade
     m_Type: 0
@@ -1158,9 +1158,9 @@ MonoBehaviour:
       m_Action: Tecla Habilidade
       m_Flags: 0
     m_Flags: 0
-  raioDestruicao: 20
   tagPedra: obstacle
   particulas: {fileID: 8949481672234338852}
+  janelaDestruicao: 0.7
 --- !u!114 &-1132028326649697820
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,14 +5,14 @@ public class Projetilmago : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Inimigo"))
+        if (other.CompareTag("enemy"))
         {
-            Destroy(other.gameObject); // mata o inimigo
-            Destroy(gameObject);       // destroi o projétil
+            Destroy(other.gameObject);
+            Destroy(gameObject);   
         }
         else if (!other.CompareTag("Player"))
         {
-            Destroy(gameObject); // destroi ao bater em qualquer outra coisa
+            Destroy(gameObject); 
         }
     }
 }

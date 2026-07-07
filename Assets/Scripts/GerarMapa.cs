@@ -11,6 +11,7 @@ public class GerarMapa : MonoBehaviour
     [SerializeField] private Transform pontoInicial;
     [SerializeField] private float limiteDestruicao = 100f;
     [SerializeField] private float distanciaSpawnAFrente = 180f;
+    private bool gerando = true;
 
     private List<GameObject> blocosAtuais = new List<GameObject>();
     private Transform player;
@@ -34,25 +35,28 @@ public class GerarMapa : MonoBehaviour
             Debug.LogWarning("nao achou com obj com tag player");
     }
 
-    void Update()
+   void Update()
     {
-        if (player == null) //tentando achar o player de novo se n for da primeira vez
+        if (player == null)
         {
             GameObject playerObj = GameObject.FindWithTag("Player");
             if (playerObj != null)
                 player = playerObj.transform;
             return;
         }
-
-        if (blocosAtuais.Count > 0)
+ 
+        if (gerando)
         {
-            GameObject ultimoBloco = blocosAtuais[blocosAtuais.Count - 1];
-            float distanciaAFrente = player.position.x - ultimoBloco.transform.position.x;
-
-            if (distanciaAFrente < distanciaSpawnAFrente)
-                SpawnBlocoAleat();
+            if (blocosAtuais.Count > 0)
+            {
+                GameObject ultimoBloco = blocosAtuais[blocosAtuais.Count - 1];
+                float distanciaAFrente = player.position.x - ultimoBloco.transform.position.x;
+ 
+                if (distanciaAFrente < distanciaSpawnAFrente)
+                    SpawnBlocoAleat();
+            }
         }
-
+ 
         if (blocosAtuais.Count > 0 && blocosAtuais[0] != null)
         {
             if (blocosAtuais[0].transform.position.x > limiteDestruicao)
@@ -61,6 +65,11 @@ public class GerarMapa : MonoBehaviour
                 blocosAtuais.RemoveAt(0);
             }
         }
+    }
+ 
+    public void PararGeracao()
+    {
+        gerando = false;
     }
 
     private void SpawnBlocoInicial(int indice, int ordem)

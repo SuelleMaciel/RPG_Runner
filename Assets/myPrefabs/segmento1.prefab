@@ -11714,6 +11714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2377847759070525554}
     m_Modifications:
+    - target: {fileID: 1008669688199754437, guid: b06e11f5005f12d4d9c9cfaf5e58a4e9, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2497568575273397896, guid: b06e11f5005f12d4d9c9cfaf5e58a4e9, type: 3}
       propertyPath: m_Name
       value: rock

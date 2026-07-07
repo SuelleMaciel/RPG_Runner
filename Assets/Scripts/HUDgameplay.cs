@@ -12,10 +12,8 @@ public class HUDgameplay : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Slider barraVida;
     [SerializeField] private UnityEngine.UI.Slider barraXP;
     [SerializeField] private TextMeshProUGUI textoTempo;
-    [SerializeField] private TextMeshProUGUI textoMoedas;
     [SerializeField] private DadosPersonagem[] personagens;
     private float tempoSobrevivido = 0f;
-    private int moedas = 0;
     private bool pausado = false;
     [SerializeField] private Sprite spritePlay;
     [SerializeField] private Sprite spritePause;
@@ -58,7 +56,6 @@ public class HUDgameplay : MonoBehaviour
         ConfigurarPerso(indice);
         AtualizarVida(1f);
         AtualizarXP(0f);
-        AtualizarMoedas(0);
     }
     public void ConfigurarPerso(int indice)
     {
@@ -68,7 +65,6 @@ public class HUDgameplay : MonoBehaviour
         textoClasse.text = dados.nomeClasse;
     }
 
-    // Update is called once per frame
     void Update()
     {
         tempoSobrevivido += Time.deltaTime;
@@ -88,15 +84,6 @@ public class HUDgameplay : MonoBehaviour
         int minutos = Mathf.FloorToInt(tempoSobrevivido / 60f);
         int segundos = Mathf.FloorToInt(tempoSobrevivido % 60);
         textoTempo.text = string.Format("Tempo sobrevivido: {0:00}:{1:00}", minutos, segundos);
-    }
-    public void AdicionarMoedas(int quantidade)
-    {
-        moedas += quantidade;
-        AtualizarMoedas(moedas);
-    }
-    public void AtualizarMoedas(int valor)
-    {
-        textoMoedas.text = valor.ToString();
     }
 
     private void AtualizarCooldown()

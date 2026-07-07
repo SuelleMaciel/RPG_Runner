@@ -4,8 +4,6 @@ public class ProjetilMago : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Projetil colidiu com: " + other.gameObject.name + " | Tag: " + other.gameObject.tag);
-        
         if (other.CompareTag("enemy"))
         {
             Destroy(other.gameObject);

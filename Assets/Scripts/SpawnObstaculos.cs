@@ -3,12 +3,15 @@ using UnityEngine;
 public class SpawnObstaculos : MonoBehaviour
 {
     [Range(0f, 1f)]
-    [SerializeField] private float chanceDeSpawnar = 0.7f;
+    [SerializeField] private float chanceDeSpawnar = 0.3f;
     [SerializeField] private string tagPontoSpawn = "PontoSpawn";
     [SerializeField] private Transform containerSpawns;
 
     void Start()
     {
+        if (GameManager.instancia != null)
+            chanceDeSpawnar = GameManager.instancia.ChanceSpawnAtual;
+
         foreach (Transform filho in containerSpawns)
         {
             if (!filho.CompareTag(tagPontoSpawn)) continue;

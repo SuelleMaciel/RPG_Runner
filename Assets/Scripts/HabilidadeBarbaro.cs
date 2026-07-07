@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Habilidadebarbaro : HabilidadeBase
+public class HabilidadeBarbaro : HabilidadeBase
 {
     [Header("Configurações do Dash")]
     [SerializeField] private string tagInimigo = "enemy";

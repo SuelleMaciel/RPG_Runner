@@ -78,14 +78,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
       insertIndex: -1
+<<<<<<< HEAD
       addedObject: {fileID: 2610502556795975755}
+=======
+      addedObject: {fileID: 4278074283738737625}
+>>>>>>> feature/colisao-vida
   m_SourcePrefab: {fileID: 100100000, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
 --- !u!1 &8858051749441068820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
   m_PrefabInstance: {fileID: 8516156209441235525}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!65 &2610502556795975755
+=======
+--- !u!65 &4278074283738737625
+>>>>>>> feature/colisao-vida
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,5 +112,10 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
+<<<<<<< HEAD
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+=======
+  m_Size: {x: 0.6155002, y: 1.7635614, z: 0.39674914}
+  m_Center: {x: -0.018530488, y: 0.87814754, z: 0.051485255}
+>>>>>>> feature/colisao-vida

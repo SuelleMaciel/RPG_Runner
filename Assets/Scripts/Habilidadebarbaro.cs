@@ -2,34 +2,30 @@ using UnityEngine;
 
 public class Habilidadebarbaro : HabilidadeBase
 {
-    [SerializeField] private float raioDestruicao = 3f;
     [SerializeField] private string tagPedra = "obstacle";
     [SerializeField] private ParticleSystem particulas;
+    [SerializeField] private float janelaDestruicao = 0.7f; // tempo que a habilidade fica ativa
 
-
+    public bool habilidadeAtiva { get; private set; } = false;
     protected override void UsarHabilidade()
     {
-        Collider[] objetos = Physics.OverlapSphere(transform.position, raioDestruicao);
+        if (particulas != null)
+            particulas.Play();
 
-        foreach (Collider col in objetos)
-        {
-            Debug.Log("Encontrou : " + col.gameObject.name + " | Tag: " + col.gameObject.tag);
-
-            if (col.CompareTag(tagPedra))
-            {
-                Destroy(col.gameObject);
-                particulas.Play();
-            }
-                
-            
-            if (col.transform.parent != null && col.transform.parent.CompareTag(tagPedra))
-                Destroy(col.transform.parent.gameObject);
-        }
+        habilidadeAtiva = true;
+        Invoke(nameof(DesativarHabilidade), janelaDestruicao);
     }
 
-    private void OnDrawGizmosSelected()
+    private void DesativarHabilidade()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, raioDestruicao);
+        habilidadeAtiva = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (habilidadeAtiva && other.CompareTag(tagPedra))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

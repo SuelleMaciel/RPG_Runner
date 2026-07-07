@@ -1158,7 +1158,7 @@ MonoBehaviour:
       m_Action: Tecla Habilidade
       m_Flags: 0
     m_Flags: 0
-  raioDestruicao: 3
+  raioDestruicao: 20
   tagPedra: obstacle
   particulas: {fileID: 8949481672234338852}
 --- !u!114 &-1132028326649697820
@@ -1175,6 +1175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VidaPlayer
   vidasMaximas: 3
   tempoInvulnerabilidade: 1.5
+  tempoAnimacaoMorte: 2
 --- !u!1 &2870523794981691266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1582,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

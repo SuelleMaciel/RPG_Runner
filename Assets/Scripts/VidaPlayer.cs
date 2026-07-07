@@ -18,14 +18,17 @@ public class VidaPlayer : MonoBehaviour
 
     private HabilidadeLutador habilidadeEscudo;
     private Animator animator;
+    private Habilidadebarbaro habilidadeBarbaro;
 
     void Start()
     {
         vidasAtuais = vidasMaximas;
         habilidadeEscudo = GetComponent<HabilidadeLutador>();
+        habilidadeBarbaro = GetComponent<Habilidadebarbaro>(); // adiciona isso
         animator = GetComponent<Animator>();
         AtualizarHUD();
     }
+
 
     void Update()
     {
@@ -37,11 +40,18 @@ public class VidaPlayer : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Colidiu com: " + other.gameObject.name + " | Tag: " + other.gameObject.tag);
+
         if (other.CompareTag("obstacle") || other.CompareTag("enemy"))
         {
             if (habilidadeEscudo != null && habilidadeEscudo.EscudoAtivo) return;
+
+            // Se o bárbaro está com habilidade ativa, não toma dano de obstacle
+            if (habilidadeBarbaro != null && habilidadeBarbaro.habilidadeAtiva && other.CompareTag("obstacle")) return;
+
             if (!invulneravel) TomarDano();
         }
     }

@@ -3,14 +3,19 @@ using UnityEngine.InputSystem;
 
 public class MovimentoPlayer : MonoBehaviour
 {
+    [Header("Movimento Lateral")]
     [SerializeField] private float distanciaPorPasso = 1.5f;
     [SerializeField] private float velocidadeMovimento = 10f;
     [SerializeField] private int maxPassos = 5;
     [SerializeField] private float intervaloEntrePassos = 0.2f;
 
-    [SerializeField] private float alturaMaximaPulo = 3f;
-    [SerializeField] private float velocidadePulo = 8f;
+    [Header("Física do Pulo")]
+    [Tooltip("Força inicial que joga o personagem para cima")]
+    [SerializeField] private float forcaDoPulo = 12f; 
+    [Tooltip("Força constante puxando o personagem para baixo")]
+    [SerializeField] private float gravidade = -35f;  
 
+    [Header("Inputs")]
     [SerializeField] private InputAction moverEsquerda;
     [SerializeField] private InputAction moverDireita;
     [SerializeField] private InputAction pular;
@@ -23,8 +28,8 @@ public class MovimentoPlayer : MonoBehaviour
 
     private float posicaoYInicial;
     private bool pulando = false;
-    private bool subindo = false;
     private float posicaoYAtual;
+    private float velocidadeY = 0f;
 
     private Animator animator;
 
@@ -46,6 +51,7 @@ public class MovimentoPlayer : MonoBehaviour
     {
         posicaoZInicial = transform.position.z;
         posicaoZAlvo = posicaoZInicial;
+        
         posicaoYInicial = transform.position.y;
         posicaoYAtual = posicaoYInicial;
 
@@ -81,8 +87,8 @@ public class MovimentoPlayer : MonoBehaviour
         if (pular.WasPressedThisFrame() && !pulando)
         {
             pulando = true;
-            subindo = true;
-            animator.SetBool("pulando", true);
+            velocidadeY = forcaDoPulo; 
+            if (animator != null) animator.SetBool("pulando", true);
         }
     }
 
@@ -104,21 +110,18 @@ public class MovimentoPlayer : MonoBehaviour
     {
         if (!pulando) return;
 
-        float alvoY = subindo ? posicaoYInicial + alturaMaximaPulo : posicaoYInicial;
+        velocidadeY += gravidade * Time.deltaTime;
 
-        posicaoYAtual = Mathf.MoveTowards(posicaoYAtual, alvoY, velocidadePulo * Time.deltaTime);
+        posicaoYAtual += velocidadeY * Time.deltaTime;
+
+        if (posicaoYAtual <= posicaoYInicial)
+        {
+            posicaoYAtual = posicaoYInicial; 
+            velocidadeY = 0f;                
+            pulando = false;                 
+            if (animator != null) animator.SetBool("pulando", false);
+        }
+
         transform.position = new Vector3(transform.position.x, posicaoYAtual, transform.position.z);
-
-        if (subindo && Mathf.Abs(posicaoYAtual - alvoY) < 0.01f)
-        {
-            subindo = false; 
-        }
-
-        if (!subindo && Mathf.Abs(posicaoYAtual - posicaoYInicial) < 0.01f)
-        {
-            transform.position = new Vector3(transform.position.x, posicaoYInicial, transform.position.z);
-            pulando = false;
-            animator.SetBool("pulando", false);
-        }
     }
 }

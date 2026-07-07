@@ -1075,8 +1075,8 @@ MonoBehaviour:
   velocidadeMovimento: 10
   maxPassos: 3
   intervaloEntrePassos: 0.1
-  alturaMaximaPulo: 3
-  velocidadePulo: 8
+  forcaDoPulo: 14
+  gravidade: -35
   moverEsquerda:
     m_Name: Mover Esquerda
     m_Type: 0
@@ -1158,9 +1158,9 @@ MonoBehaviour:
       m_Action: Tecla Habilidade
       m_Flags: 0
     m_Flags: 0
-  raioDestruicao: 20
   tagPedra: obstacle
   particulas: {fileID: 8949481672234338852}
+  janelaDestruicao: 0.7
 --- !u!114 &-1132028326649697820
 MonoBehaviour:
   m_ObjectHideFlags: 0

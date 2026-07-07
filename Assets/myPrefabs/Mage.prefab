@@ -1191,8 +1191,8 @@ MonoBehaviour:
   velocidadeMovimento: 10
   maxPassos: 3
   intervaloEntrePassos: 0.2
-  alturaMaximaPulo: 3
-  velocidadePulo: 8
+  forcaDoPulo: 16
+  gravidade: -35
   moverEsquerda:
     m_Name: Mover Esquerda
     m_Type: 0
@@ -1291,6 +1291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VidaPlayer
   vidasMaximas: 3
   tempoInvulnerabilidade: 1.5
+  tempoAnimacaoMorte: 2
 --- !u!1 &2870523794981691266
 GameObject:
   m_ObjectHideFlags: 0

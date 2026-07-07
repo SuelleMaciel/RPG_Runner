@@ -1276,7 +1276,7 @@ MonoBehaviour:
     m_Flags: 0
   prefabProjetil: {fileID: 8841096127641082716, guid: 19fde14c4b28b5044999af26d139f6bb, type: 3}
   velocidadeProjetil: 20
-  offsetDisparo: {x: -1, y: 0.5, z: 0}
+  offsetDisparo: {x: -1, y: 1.5, z: 0}
 --- !u!114 &-5952411393237933521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,6 +1291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VidaPlayer
   vidasMaximas: 3
   tempoInvulnerabilidade: 1.5
+  tempoAnimacaoMorte: 2
 --- !u!1 &2870523794981691266
 GameObject:
   m_ObjectHideFlags: 0

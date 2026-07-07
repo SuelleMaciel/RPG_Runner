@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Habilidademago : HabilidadeBase
 {
-    [Header("Projétil")]
     [SerializeField] private GameObject prefabProjetil;
     [SerializeField] private float velocidadeProjetil = 20f;
-    [SerializeField] private Vector3 offsetDisparo = new Vector3(-1f, 0.5f, 0f); // ajusta no Inspector
+    [SerializeField] private Vector3 offsetDisparo = new Vector3(-1f, 0.5f, 0f); 
 
     protected override void UsarHabilidade()
     {

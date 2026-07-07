@@ -5,6 +5,8 @@ public class HabilidadeLutador : HabilidadeBase
     [SerializeField] private float duracaoEscudo = 3f;
 
     public bool EscudoAtivo { get; private set; } = false;
+    [SerializeField] private ParticleSystem particulas;
+
 
     private float timerEscudo = 0f;
 
@@ -22,6 +24,7 @@ public class HabilidadeLutador : HabilidadeBase
 
     protected override void UsarHabilidade()
     {
+        if (particulas != null){particulas.Play();}
         EscudoAtivo = true;
         timerEscudo = duracaoEscudo;
     }

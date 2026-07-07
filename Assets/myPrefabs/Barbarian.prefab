@@ -1075,8 +1075,8 @@ MonoBehaviour:
   velocidadeMovimento: 10
   maxPassos: 3
   intervaloEntrePassos: 0.1
-  alturaMaximaPulo: 3
-  velocidadePulo: 8
+  forcaDoPulo: 14
+  gravidade: -35
   moverEsquerda:
     m_Name: Mover Esquerda
     m_Type: 0

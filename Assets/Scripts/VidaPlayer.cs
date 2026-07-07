@@ -13,13 +13,13 @@ public class VidaPlayer : MonoBehaviour
     private float timerInvulneravel = 0f;
     private bool invulneravel = false;
 
-    private Habilidadelutador habilidadeEscudo;
+    private HabilidadeLutador habilidadeEscudo;
 
     void Start()
     {
         vidasAtuais = vidasMaximas;
         
-        habilidadeEscudo = GetComponent<Habilidadelutador>();
+        habilidadeEscudo = GetComponent<HabilidadeLutador>();
         
         AtualizarHUD();
     }

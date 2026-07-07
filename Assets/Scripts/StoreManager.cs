@@ -41,6 +41,10 @@ public class StoreManager : MonoBehaviour
 
     public void Recomecar()
     {
+        PlayerPrefs.SetInt("Comprou_Cooldown", 0);
+        PlayerPrefs.SetInt("Comprou_Vida", 0);
+        PlayerPrefs.Save();
+        
         SceneManager.LoadScene("Cena");
     }
 }

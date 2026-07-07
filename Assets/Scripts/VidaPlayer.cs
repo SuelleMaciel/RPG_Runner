@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class VidaPlayer : MonoBehaviour
 {
     [Header("Configurações de Vida")]
     [Tooltip("Defina no Inspector: Bárbaro = 3, Guerreiro = 4, Mago = 2")]
-    public int vidasMaximas = 3; 
+    public int vidasMaximas = 3;
     private int vidasAtuais;
 
     [Header("Colisão e Invulnerabilidade")]
@@ -13,12 +13,17 @@ public class VidaPlayer : MonoBehaviour
     private float timerInvulneravel = 0f;
     private bool invulneravel = false;
 
+    [Header("Morte")]
+    [SerializeField] private float tempoAnimacaoMorte = 2f;
+
     private HabilidadeLutador habilidadeEscudo;
+    private Animator animator;
 
     void Start()
     {
         vidasAtuais = vidasMaximas;
         habilidadeEscudo = GetComponent<HabilidadeLutador>();
+        animator = GetComponent<Animator>();
         AtualizarHUD();
     }
 
@@ -28,9 +33,7 @@ public class VidaPlayer : MonoBehaviour
         {
             timerInvulneravel -= Time.deltaTime;
             if (timerInvulneravel <= 0f)
-            {
                 invulneravel = false;
-            }
         }
     }
 
@@ -38,15 +41,8 @@ public class VidaPlayer : MonoBehaviour
     {
         if (other.CompareTag("obstacle") || other.CompareTag("enemy"))
         {
-            if (habilidadeEscudo != null && habilidadeEscudo.EscudoAtivo)
-            {
-                return;
-            }
-
-            if (!invulneravel)
-            {
-                TomarDano();
-            }
+            if (habilidadeEscudo != null && habilidadeEscudo.EscudoAtivo) return;
+            if (!invulneravel) TomarDano();
         }
     }
 
@@ -57,13 +53,29 @@ public class VidaPlayer : MonoBehaviour
         timerInvulneravel = tempoInvulnerabilidade;
 
         AtualizarHUD();
-
         Debug.Log($"Tomou dano! Vidas restantes: {vidasAtuais}");
 
         if (vidasAtuais <= 0)
-        {
-            Morrer();
-        }
+            IniciarMorte();
+    }
+
+    private void IniciarMorte()
+    {
+        // para o mapa 
+        if (GerarMapa.instancia != null)
+            GerarMapa.instancia.PararGeracao();
+        if (GameManager.instancia != null)
+            GameManager.instancia.PararJogo();
+
+        if (animator != null)
+            animator.SetTrigger("morreu");
+
+        Invoke(nameof(IrParaMorte), tempoAnimacaoMorte);
+    }
+
+    private void IrParaMorte()
+    {
+        SceneManager.LoadScene("Morte");
     }
 
     private void AtualizarHUD()
@@ -73,11 +85,5 @@ public class VidaPlayer : MonoBehaviour
             float porcentagem = (float)vidasAtuais / vidasMaximas;
             HUDgameplay.instancia.AtualizarVida(porcentagem);
         }
-    }
-
-    private void Morrer()
-    {
-        Debug.Log("Fim de Jogo!");
-        SceneManager.LoadScene("Morte"); 
     }
 }

@@ -837,10 +837,11 @@ GameObject:
   m_Component:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -4344461013512119991}
-  - component: {fileID: 7752706634837873305}
-  - component: {fileID: 1200723694801045678}
   - component: {fileID: 7468956120069903920}
   - component: {fileID: -7946520011735539481}
+  - component: {fileID: 7752706634837873305}
+  - component: {fileID: 1519402170887506457}
+  - component: {fileID: 5663068370560909381}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -895,6 +896,64 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &7468956120069903920
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &-7946520011735539481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c5369ca9301d74db249ae9244e0167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HabilidadeLutador
+  cooldown: 5
+  teclaHabilidade:
+    m_Name: Tecla Habilidade
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 46042cca-1240-45af-b7c4-52340e0c0842
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 387cec61-bc0b-4ec4-857e-b7b8046c2d6f
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Tecla Habilidade
+      m_Flags: 0
+    m_Flags: 0
+  duracaoEscudo: 3
 --- !u!114 &7752706634837873305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,8 +1023,22 @@ MonoBehaviour:
       m_Action: Pular
       m_Flags: 0
     m_Flags: 0
---- !u!64 &1200723694801045678
-MeshCollider:
+--- !u!114 &1519402170887506457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c7a1c154a62f19cb5c210e63312bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VidaPlayer
+  vidasMaximas: 4
+  tempoInvulnerabilidade: 1.5
+--- !u!136 &5663068370560909381
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -979,71 +1052,14 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!54 &7468956120069903920
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &-7946520011735539481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c5369ca9301d74db249ae9244e0167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HabilidadeLutador
-  cooldown: 5
-  teclaHabilidade:
-    m_Name: Tecla Habilidade
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 46042cca-1240-45af-b7c4-52340e0c0842
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 387cec61-bc0b-4ec4-857e-b7b8046c2d6f
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Tecla Habilidade
-      m_Flags: 0
-    m_Flags: 0
-  duracaoEscudo: 3
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.0196688
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.3889577, z: 0}
 --- !u!1 &1441910434564014222
 GameObject:
   m_ObjectHideFlags: 0

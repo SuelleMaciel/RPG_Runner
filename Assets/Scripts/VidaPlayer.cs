@@ -67,6 +67,11 @@ public class VidaPlayer : MonoBehaviour
     private void IniciarMorte()
     {
         morreu = true;
+        MovimentoPlayer movimento = GetComponent<MovimentoPlayer>();
+        if (movimento != null)
+        {
+          movimento.enabled = false;
+        }
 
         if (GerarMapa.instancia != null)
             GerarMapa.instancia.PararGeracao();

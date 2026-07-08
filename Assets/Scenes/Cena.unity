@@ -447,7 +447,6 @@ MonoBehaviour:
   barraVida: {fileID: 897053829}
   barraXP: {fileID: 16390036}
   textoTempo: {fileID: 1318118354}
-  textoMoedas: {fileID: 0}
   personagens:
   - nomeClasse: "B\xE1rbaro"
     icon: {fileID: 21300000, guid: b5f3e63aeae237a45a26748240c3642c, type: 3}
@@ -1806,9 +1805,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   velocidadeInicial: 10
-  velocidadeMaxima: 30
+  velocidadeMaxima: 50
   incrementoVelocidade: 1
   intervaloAumento: 7
+  chanceSpawnInicial: 0.3
+  chanceSpawnMaxima: 0.9
+  incrementoChance: 0.05
+  multiplicadorDash: 1
 --- !u!4 &1390748213
 Transform:
   m_ObjectHideFlags: 0
@@ -2444,8 +2447,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

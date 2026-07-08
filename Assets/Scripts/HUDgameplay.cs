@@ -9,16 +9,26 @@ public class HUDgameplay : MonoBehaviour
     public static HUDgameplay instancia;
     [SerializeField] private UnityEngine.UI.Image avatar;
     [SerializeField] private TextMeshProUGUI textoClasse;
-    [SerializeField] private UnityEngine.UI.Slider barraVida;
+    
+    [Header("Sistema de Corações")]
+    [SerializeField] private Transform containerCoracoes;
+    [SerializeField] private GameObject prefabCoracao;
+    
     [SerializeField] private UnityEngine.UI.Slider barraXP;
+    
     [SerializeField] private TextMeshProUGUI textoTempo;
+    
     [SerializeField] private DadosPersonagem[] personagens;
+    
     private float tempoSobrevivido = 0f;
     private bool pausado = false;
+    
     [SerializeField] private Sprite spritePlay;
     [SerializeField] private Sprite spritePause;
     [SerializeField] private UnityEngine.UI.Button botaoPause;
     [SerializeField] private TextMeshProUGUI textoCooldown;
+    
+    
 
     private HabilidadeBase habilidade;
 
@@ -54,9 +64,9 @@ public class HUDgameplay : MonoBehaviour
     {
         int indice = PlayerPrefs.GetInt("PersonagemEscolhido", 0);
         ConfigurarPerso(indice);
-        AtualizarVida(1f);
         AtualizarXP(0f);
     }
+    
     public void ConfigurarPerso(int indice)
     {
         if (personagens == null || indice < 0 || indice >= personagens.Length) return;
@@ -71,10 +81,40 @@ public class HUDgameplay : MonoBehaviour
         AtualizarTempo();
         AtualizarCooldown();
     }
-    public void AtualizarVida(float porcentagem)
+    
+    public void AtualizarVida(int vidasAtuais, int vidasMaximas)
     {
-        barraVida.value = Mathf.Clamp01(porcentagem);
+        if (containerCoracoes == null || prefabCoracao == null) return;
+
+        while (containerCoracoes.childCount < vidasMaximas)
+        {
+            Instantiate(prefabCoracao, containerCoracoes);
+        }
+
+        for (int i = 0; i < containerCoracoes.childCount; i++)
+        {
+            Transform coracao = containerCoracoes.GetChild(i);
+            
+            if (i < vidasMaximas)
+            {
+                coracao.gameObject.SetActive(true);
+                UnityEngine.UI.Image img = coracao.GetComponent<UnityEngine.UI.Image>();
+                
+                if (img != null)
+                {
+                    if (i < vidasAtuais)
+                        img.color = Color.white; 
+                    else
+                        img.color = new Color(0.2f, 0.2f, 0.2f, 0.5f); 
+                }
+            }
+            else
+            {
+                coracao.gameObject.SetActive(false);
+            }
+        }
     }
+    
     public void AtualizarXP(float porcentagem)
     {
         barraXP.value = Mathf.Clamp01(porcentagem); //clamp01 é pra normalizar o valor (pode ser so clamp tambem)

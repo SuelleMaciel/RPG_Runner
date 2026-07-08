@@ -22,7 +22,9 @@ public class VidaPlayer : MonoBehaviour
 
     void Start()
     {
-        vidasAtuais = vidasMaximas + PlayerPrefs.GetInt("VidaExtra", 0);
+        vidasMaximas += PlayerPrefs.GetInt("VidaExtra", 0);
+        vidasAtuais = vidasMaximas;
+        
         habilidadeEscudo = GetComponent<HabilidadeLutador>();
         habilidadeBarbaro = GetComponent<HabilidadeBarbaro>();
         animator = GetComponent<Animator>();
@@ -94,7 +96,7 @@ public class VidaPlayer : MonoBehaviour
         if (HUDgameplay.instancia != null)
         {
             float porcentagem = (float)vidasAtuais / vidasMaximas;
-            HUDgameplay.instancia.AtualizarVida(porcentagem);
+            HUDgameplay.instancia.AtualizarVida(vidasAtuais, vidasMaximas);
         }
     }
 }

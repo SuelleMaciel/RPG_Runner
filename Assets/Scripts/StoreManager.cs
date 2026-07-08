@@ -31,12 +31,12 @@ public class StoreManager : MonoBehaviour
     public void ComprarVida()
     {
         int vidaExtra = PlayerPrefs.GetInt("VidaExtra", 0);
-        PlayerPrefs.SetInt("VidaExtra", vidaExtra + 10);
+        PlayerPrefs.SetInt("VidaExtra", vidaExtra + 1);
 
         PlayerPrefs.SetInt("Comprou_Vida", 1);
         botaoComprar2.interactable = false;
 
-        Debug.Log("vida aumentou em 10");
+        Debug.Log("vida aumentou em 1");
     }
 
     public void Recomecar()

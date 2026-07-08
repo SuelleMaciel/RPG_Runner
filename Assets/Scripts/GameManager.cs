@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instancia;
 
+    [Header("Velocidade")]
     [SerializeField] private float velocidadeInicial = 10f;
     [SerializeField] private float velocidadeMaxima = 40f;
     [SerializeField] private float incrementoVelocidade = 1f;
@@ -12,8 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float chanceSpawnInicial = 0.3f;  
     [SerializeField] private float chanceSpawnMaxima = 0.9f; 
     [SerializeField] private float incrementoChance = 0.05f;  
+ 
+    private float velocidadeBase;
 
-    public float VelocidadeAtual { get; private set; }
+    public float multiplicadorDash = 1f;
+    
+    public float VelocidadeAtual => velocidadeBase * multiplicadorDash;
     public float ChanceSpawnAtual { get; private set; }
 
     private float timerAumento = 0f;
@@ -21,8 +26,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if (instancia == null) instancia = this;
-        VelocidadeAtual = velocidadeInicial;
         ChanceSpawnAtual = chanceSpawnInicial;
+        velocidadeBase = velocidadeInicial;
     }
 
     void Update()
@@ -32,13 +37,14 @@ public class GameManager : MonoBehaviour
         if (timerAumento >= intervaloAumento)
         {
             timerAumento = 0f;
-            VelocidadeAtual = Mathf.Min(VelocidadeAtual + incrementoVelocidade, velocidadeMaxima);
+            velocidadeBase = Mathf.Min(velocidadeBase + incrementoVelocidade, velocidadeMaxima);
             ChanceSpawnAtual = Mathf.Min(ChanceSpawnAtual + incrementoChance, chanceSpawnMaxima);
         }
     }
 
     public void PararJogo()
     {
-        VelocidadeAtual = 0f;
+        velocidadeBase = 0f;
+        multiplicadorDash = 1f;
     }
 }

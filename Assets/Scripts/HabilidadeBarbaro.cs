@@ -10,16 +10,13 @@ public class HabilidadeBarbaro : HabilidadeBase
     [Tooltip("Tempo total que a habilidade fica ativa e invulnerável")]
     [SerializeField] private float janelaDestruicao = 0.7f; 
     
-    [Tooltip("Distância que o Bárbaro se lança para frente")]
-    [SerializeField] private float forcaDoDash = 4f;
+    [Tooltip("Quantas vezes o cenário fica mais rápido durante o Dash")]
+    [SerializeField] private float multiplicadorVelocidade = 1.5f;
 
     public bool habilidadeAtiva { get; private set; } = false;
 
     protected override void UsarHabilidade()
     {
-        if (particulas != null)
-            particulas.Play();
-
         habilidadeAtiva = true;
         
         StartCoroutine(RotinaDeDash());
@@ -27,38 +24,18 @@ public class HabilidadeBarbaro : HabilidadeBase
 
     private IEnumerator RotinaDeDash()
     {
-        float tempoPassado = 0f;
-        float xInicial = transform.position.x;
-        
-        float xAlvo = xInicial - forcaDoDash; 
-
-        float tempoAvanco = janelaDestruicao * 0.4f;
-        while (tempoPassado < tempoAvanco)
+        if (GameManager.instancia != null)
         {
-            tempoPassado += Time.deltaTime;
-            float t = tempoPassado / tempoAvanco;
-            
-            float novoX = Mathf.Lerp(xInicial, xAlvo, Mathf.Sin(t * Mathf.PI * 0.5f));
-            
-            transform.position = new Vector3(novoX, transform.position.y, transform.position.z);
-            yield return null;
+            GameManager.instancia.multiplicadorDash = multiplicadorVelocidade;
         }
 
-        yield return new WaitForSeconds(janelaDestruicao * 0.2f);
+        yield return new WaitForSeconds(janelaDestruicao);
 
-        tempoPassado = 0f;
-        float tempoVolta = janelaDestruicao * 0.4f;
-        while (tempoPassado < tempoVolta)
+        if (GameManager.instancia != null)
         {
-            tempoPassado += Time.deltaTime;
-            float t = tempoPassado / tempoVolta;
-            
-            float novoX = Mathf.Lerp(xAlvo, xInicial, t);
-            transform.position = new Vector3(novoX, transform.position.y, transform.position.z);
-            yield return null;
+            GameManager.instancia.multiplicadorDash = 1f;
         }
 
-        transform.position = new Vector3(xInicial, transform.position.y, transform.position.z);
         habilidadeAtiva = false;
     }
 
@@ -67,6 +44,10 @@ public class HabilidadeBarbaro : HabilidadeBase
         if (habilidadeAtiva && other.CompareTag(tagInimigo))
         {
             Destroy(other.gameObject);
+            if (particulas != null)
+            {
+                particulas.Play();
+            }
         }
     }
 }
